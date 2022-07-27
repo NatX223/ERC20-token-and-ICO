@@ -54,7 +54,7 @@ contract coinToken is ERC20 {
         _approve(owner, spender, amount);
         return true;
     }
-    
+
     // function to spend another address tokens
     function transferFrom(
         address from,
@@ -86,5 +86,10 @@ contract coinToken is ERC20 {
     //function to burn tokens
     function burn (address account, uint amount) public {
         _burn(account, amount);
+    }
+
+    // function to buy token
+    function claim (uint amount) payable external{
+        mint(msg.sender, amount);
     }
 }
